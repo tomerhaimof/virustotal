@@ -2,8 +2,8 @@
 
 '''
     This script will get a url as an argument and will output it's detections
-    and categories from VirusTotal (vt). Plese note that if the last analysis
-    was conducted more than 24 hours ago, the script will ask for a new 
+    and categories from VirusTotal (vt). Please note that if the last analysis
+    was conducted more than 24 hours ago, the script will ask for a new one
     which may take some time.
     In order to print the FULL analyses, please add "full" after the url:
         
