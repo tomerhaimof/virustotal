@@ -79,10 +79,9 @@ def main():
         if sys.argv[2] == "full":
             full = True
     # Check if the given file exists
-    else:
-        if not path.exists(sys.argv[1]):
-            print("File doesn't exist!")
-            sys.exit()
+    if not path.exists(sys.argv[1]):
+        print("File doesn't exist!")
+        sys.exit()
 
     vt_key = get_vt_api_key()
     vt_key_status = check_vt_key(vt_key)
