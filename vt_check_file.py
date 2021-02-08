@@ -2,6 +2,8 @@
 
 '''
     This script will get a file as an argument and will output it's detections from VirusTotal (vt)
+    Please note that if the last analysis was conducted more than 24 hours ago,
+    the script will ask for a new one, which may take some time.
     In order to print the FULL analyses, please add "full" after the file name:
         
         ./vt_check_file.py filename
@@ -42,8 +44,7 @@ def check_vt_key(vt_key):
     res = requests.get(BASE_URL + '/search?query=blablasomestringblabla', headers=headers)
     if res.status_code == 401:
         return res.json()['error']['code']
-    else:
-        return "verified"
+    return "verified"
 
 def sha256sum(filename):
     '''
