@@ -2,7 +2,9 @@
 
 '''
     This script will get a url as an argument and will output it's detections
-    and categories from VirusTotal (vt).
+    and categories from VirusTotal (vt). Plese note that if the last analysis
+    was conducted more than 24 hours ago, the script will ask for a new 
+    which may take some time.
     In order to print the FULL analyses, please add "full" after the url:
         
         ./vt_check_url.py "https://some.url.here/blabla.html"
@@ -14,9 +16,7 @@
 
 from getpass import getpass
 import sys
-from os import path
 import time
-import hashlib
 import calendar
 import json
 import base64
@@ -60,8 +60,7 @@ def check_vt_key(vt_key):
     res = requests.get(BASE_URL + '/search?query=blablasomestringblabla', headers=headers)
     if res.status_code == 401:
         return res.json()['error']['code']
-    else:
-        return "verified"
+    return "verified"
 
 def get_url_base64(url):
     '''
